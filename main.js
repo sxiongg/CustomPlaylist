@@ -104,17 +104,88 @@ $('document').ready(function () {
         $('#resultsContainer').append(addToPlaylistButton);
 
         // Add to playlist
+        // Set the album name and image
+        var albumName = "";
+        var albumImg = "";
+
+        if (resultObj.album != undefined) {
+            // Album object found. Set the album and image
+            albumName = '<p>Album Name: ' + resultObj.album.title + '</p>';
+            albumImg = "<img src='" + resultObj.album.image[1]['#text'] + "' />";
+        }
+        else {
+            // No album. Display a blank image placeholder
+            albumImg  = "<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZfyC7CGyu3POigSstHSw2zhXvjyrBHmxxJAZQSIlYs85mx3j8' height='64' width='64' />";
+        }
+
+
+        $('.addToPlaylist').click(function(resultObj){
+            // Move the object from the result to the final playlist
+            // Appending the album name and image
+            searchResult += albumName + albumImg;
+    
+            // Removes prior search result
+            $('#resultsContainer').children().detach();  
+    
+    
+            // Get the number from the last item in the playlist div
+            // If no itemCard divs exist, then start with #1
+            // If itemCard divs exist, get the last div child's value then increment by 1
+            var playlistNumber = getIndexForPlaylistItem();
+            // console.log(playlistNumber);
+    
+            // Create the itemCard div to hold each individual track
+            var itemCard = '<div id="itemCard' +  playlistNumber + '"></div>';
+            // console.log("item card div" + itemCard);
+    
+            // Place the sequence number into the numberIndex div for each itemCard
+            var numberIndex = '<div class="numberIndex">' + playlistNumber + '</div>';
+            // var resultDiv = '<div class="artistResultDiv">resultdiv</div>';
+            
+            // Append itemCard to the playlist div
+            $('#playlist').append(itemCard);
+    
+            // Append the number index to itemCard div
+            $('#itemCard' + playlistNumber).append(numberIndex);
+    
+            // Append the artist and track result to itemCard div
+            $('#itemCard'  + playlistNumber).append(searchResult);
+    
+            
+        })
 
     };
-    $("#submitButton").click(function () {
-        $("#playlistField h3").text(inputPlaylist.value);
-        console.log(inputPlaylist);
-    })
+
     var noAPIResult = function (str) {
         // Display a message that the track searched for could not be found
         $('#resultsContainer').append("<h4>" + str + "</h4>");
     };
 
+    $("#submitButton").click(function () {
+        // Sets the text entered by the user as the title of the playlist
+        $("#playlistField h3").text(inputPlaylist.value);
+        // console.log(inputPlaylist);
+    })
+
+
+    function getIndexForPlaylistItem() {
+        // Get the number from the last record of divs in the playlist div
+        // If no itemCard divs exist, then return #1
+        // If itemCard divs exist, get the last value then increment by 1
+        if ($('#playlist').children().get(0) == undefined) {
+            // No itemCard divs exist. Return 1.
+            return 1;
+        }
+        else {
+            // itemCard divs exist
+            // For playlist div, get the last itemCard child and get the number stored in numberIndex
+            // Increment it by one and return it
+            var latestNum = $('#playlist div:last-child').children('.numberIndex').text();
+            // console.log("last child: ", $('#playlist div:last-child').children('.numberIndex').text());
+            return Number(latestNum) + 1;
+        }
+    
+    };
 
 
 })
