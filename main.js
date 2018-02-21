@@ -19,14 +19,14 @@ $('document').ready(function () {
 
         // Main part of the API URL for Last.FM
         var _queryUrl = "http://ws.audioscrobbler.com/2.0/?method=track.getinfo&api_key=4d87768072faff4ea2d4a189cfbe7115&format=json&artist="
-        
+
         if (inputArtist.value.length == 0) {
             // No text in the artist textbox. Send alert.
             alert("Enter Artist");
         } else if (inputSong.value.length == 0) {
             // No text in the song textbox. Send alert.
             alert("Enter song");
-        } 
+        }
         else {
             // Find the artist and track entered through Last.FM
 
@@ -59,29 +59,29 @@ $('document').ready(function () {
                 url: _queryUrl,
                 method: "Get"
             })
-            // Response
-            .done(function (response) {
-                console.log(response);
+                // Response
+                .done(function (response) {
+                    console.log(response);
 
-                // A successful pull returns a "track" object. 
-                // An unsuccessful pull returns an "error" object.
-                if (response.track != undefined) {
-                    // Search result found. Append result.
-                    removePreviousResult();
-                    appendAPIResult(response.track);
-                }
-                else {
-                    // Track not found.
-                    removePreviousResult();
-                    noAPIResult(response.message);
-                }
+                    // A successful pull returns a "track" object. 
+                    // An unsuccessful pull returns an "error" object.
+                    if (response.track != undefined) {
+                        // Search result found. Append result.
+                        removePreviousResult();
+                        appendAPIResult(response.track);
+                    }
+                    else {
+                        // Track not found.
+                        removePreviousResult();
+                        noAPIResult(response.message);
+                    }
 
-            });
+                });
         }
 
     });
 
-    var removePreviousResult = function ()  {
+    var removePreviousResult = function () {
         // Removes a result in the resultsContainer from a prior search
         $('#resultsContainer').children().detach();
     };
@@ -106,8 +106,11 @@ $('document').ready(function () {
         // Add to playlist
 
     };
-
-    var noAPIResult = function(str) {
+    $("#submitButton").click(function () {
+        $("#playlistField h3").text(inputPlaylist.value);
+        console.log(inputPlaylist);
+    })
+    var noAPIResult = function (str) {
         // Display a message that the track searched for could not be found
         $('#resultsContainer').append("<h4>" + str + "</h4>");
     };

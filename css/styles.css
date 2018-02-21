@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
+h1 {
+    text-align: center;
+}
+
+/* body {
+    /* background-color: gray; */
+    /* background-image: url("./../mixtape.png"); */
+/* } */
+
+/* body img { */
+    /* opacity: 0.5; */
+/* } */
+h3 {
+    margin: 0;
+}
+
+#inputArtist {
+    width: 30%;
+}
+
+#inputSong {
+    width: 30%
+}
+
+#inputPlaylist {
+    width: 30%
+}
+
+#searchButton {
+    margin-top: 20px;
+}
+
+#submitButton {
+    margin-top: 20px;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Playlist Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="./css/styles.css">
+
+</head>
+
+<body>
+
+    <div class="container-fluid" id="headerContainer">
+        <div id="header1">
+            <h1>Playlist</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="mainContainer">
+        <div id='column-1' class="col-md-6">
+            <div id="header2">
+                <h3>Search for Songs</h3>
+                </div>
+            <div id="searchField">
+                <div>
+                    <label for="inputArtist">Artist:</label>
+
+                    <input class="form-control" type="text" id="inputArtist">
+                </div>
+
+                <div>
+                    <label for="inputSong">Song:</label>
+
+                    <input class="form-control" type="text" id="inputSong">
+                </div>
+                <div>
+                    <button class="btn" id="searchButton">Search</button>
+                </div>
+
+            </div>
+
+            <div id="resultsField">
+                <div id="resultsContainer"></div>
+
+            </div>
+        </div>
+
+        <div id='column-2' class="col-md-6">
+            <div id="playlistField">
+                <h3>PlaylistName</h3>
+                <label for="inputPlaylist">Playlist Name:</label>
+                <input class="form-control" type="text" id="inputPlaylist">
+                <div>
+                <button class="btn" id="submitButton">Submit</button>
+                </div>
+            </div>
+            <div id="playlist">
+            </div>
+
+
+
+
+
+
+
+        </div>
+        <script src="./main.js"></script>
+</body>
+
+</html>
