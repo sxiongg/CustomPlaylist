@@ -92,7 +92,7 @@ $('document').ready(function () {
         // console.log(resultObj.name);
 
         var returnMessage = "<h4>Is this the song you are looking for?</h4>";
-        var searchResult = '<p>Artist: ' + resultObj.artist.name + '</p>';
+        var searchResult = '<div class="col-md-4"><p>Artist: ' + resultObj.artist.name + '</p>';
         searchResult += '<p>Track Name: ' + resultObj.name + '</p>';
 
         // Append the message and search results
@@ -107,11 +107,12 @@ $('document').ready(function () {
         // Set the album name and image
         var albumName = "";
         var albumImg = "";
+        var deleteButton = "<div class='btn col-md-2'><button>X</button></div>"
 
         if (resultObj.album != undefined) {
             // Album object found. Set the album and image
-            albumName = '<p>Album Name: ' + resultObj.album.title + '</p>';
-            albumImg = "<img src='" + resultObj.album.image[1]['#text'] + "' />";
+            albumName = '<p>Album Name: ' + resultObj.album.title + '</p></div>';
+            albumImg = "<div class='col-md-4'><img src='" + resultObj.album.image[1]['#text'] + "'</img></div>";
         }
         else {
             // No album. Display a blank image placeholder
@@ -122,7 +123,7 @@ $('document').ready(function () {
         $('.addToPlaylist').click(function(resultObj){
             // Move the object from the result to the final playlist
             // Appending the album name and image
-            searchResult += albumName + albumImg;
+            searchResult += albumName + albumImg + deleteButton;
     
             // Removes prior search result
             $('#resultsContainer').children().detach();  
@@ -135,11 +136,11 @@ $('document').ready(function () {
             // console.log(playlistNumber);
     
             // Create the itemCard div to hold each individual track
-            var itemCard = '<div id="itemCard' +  playlistNumber + '"></div>';
+            var itemCard = '<div class="row" id="itemCard' +  playlistNumber + '"></div>';
             // console.log("item card div" + itemCard);
     
             // Place the sequence number into the numberIndex div for each itemCard
-            var numberIndex = '<div class="numberIndex">' + playlistNumber + '</div>';
+            var numberIndex = '<div class="numberIndex col-md-2">' + playlistNumber + '</div>';
             // var resultDiv = '<div class="artistResultDiv">resultdiv</div>';
             
             // Append itemCard to the playlist div
