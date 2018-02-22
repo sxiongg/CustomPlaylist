@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /* border: 1px solid black; */
     font-family: rubik;
 }
 
@@ -42,6 +43,11 @@ h3 {
 
 #playlistField {
     height: 50px;
+
+}
+
+#playlist {
+    height: 100%;
 }
 
 #searchField {
@@ -60,4 +66,5 @@ h3 {
     width: 80%;
     margin: auto;
 }
+
 

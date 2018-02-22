@@ -92,32 +92,32 @@ $('document').ready(function () {
         // console.log(resultObj.name);
 
         var returnMessage = "<h4>Is this the song you are looking for?</h4>";
-        var searchResult = '<div class="col-md-4"><p>Artist: ' + resultObj.artist.name + '</p>';
-        searchResult += '<p>Track Name: ' + resultObj.name + '</p>';
+        var searchResult = '<div class="col-md-8"><span class="trackInformation">Artist: ' + '<a href="' + resultObj.album. url + '">'+ resultObj.artist.name + '</a></span>';
+        searchResult += '<span class="trackInformation">Track Name: ' + resultObj.name + '</span>';
 
         // Append the message and search results
         $('#resultsContainer').append(returnMessage);
         $('#resultsContainer').append(searchResult);
 
         // Create a button to add to the final playlist
-        var addToPlaylistButton = '<button class="addToPlaylist">Add to Playlist</button>';
+        var addToPlaylistButton = '<button class="btn addToPlaylist">Add to Playlist</button>';
         $('#resultsContainer').append(addToPlaylistButton);
 
         // Add to playlist
         // Set the album name and image
         var albumName = "";
         var albumImg = "";
-        var deleteButton = "<div class='btn col-md-2'><button class='btn btn-danger deleteButton'>X</button></div>"
+        var deleteButton = "<div class='btn col-md-1'><button class='btn btn-danger deleteButton'>X</button></div>"
 
         if (resultObj.album != undefined) {
             // Album object found. Set the album and image
-            albumName = '<p>Album Name: ' + resultObj.album.title + '</p></div>';
-            albumImg = "<div class='col-md-4'><img src='" + resultObj.album.image[1]['#text'] + "'</img></div>";
+            albumName = '<span class="trackInformation">Album Name: ' + resultObj.album.title + '</span></div>';
+            albumImg = "<div class='col-md-2'><img src='" + resultObj.album.image[1]['#text'] + "'</img></div>";
         }
         else {
             // No album. Display a blank image placeholder
-            albumName = "<p>Album not found.</p></div>";
-            albumImg  = "<div class='col-md-4'> </div>";
+            albumName = "<span>Album not found.</span></div>";
+            albumImg  = "<div class='col-md-2'> </div>";
         }
 
 
@@ -141,7 +141,7 @@ $('document').ready(function () {
             // console.log("item card div" + itemCard);
     
             // Place the sequence number into the numberIndex div for each itemCard
-            var numberIndex = '<div class="numberIndex col-md-2">' + playlistNumber + '</div>';
+            var numberIndex = '<div class="numberIndex col-md-1">' + playlistNumber + '</div>';
             // var resultDiv = '<div class="artistResultDiv">resultdiv</div>';
             
             // Append itemCard to the playlist div
@@ -188,6 +188,47 @@ $('document').ready(function () {
         }
     
     };
+
+    // $(function () {
+    //     $('.sendButton').click(function (event) {
+    //         var sendForm = '<input id="emailAddressInput" class="form-control" type="text"><input class="btn" id="sendEmailButton" type="submit" value="Send">';
+    //         $('#column-2').append(sendForm);
+            
+
+    //         $('#sendEmailButton').click(function (){
+
+    //             // variables that grab last id and make it a number
+    //             var lastSong = $('#playlist div:last-child').children('.numberIndex').text();
+    //             var lastSong = Number(lastSong);
+    //             console.log(lastSong); 
+    //             var emailBodyInfoText = "";
+
+    //             // loop through each number index and create var of song info
+    //             for(i = 0; i < lastSong; i++) {
+    //                 //grab text of spans (song information)
+    //                 var grabItemCard = $('.trackInformation').parent().parent();
+    //                 console.log(grabItemCard[i]);
+
+    //                 var grabSpans = $(grabItemCard[i]).children().children('.trackInformation').text();
+    //                 console.log(grabSpans);
+
+    //                 // place info into variable and add new variable each iteration
+    //                 emailBodyInfoText += (i + 1) + ')' + grabSpans + '%0A' + '%0A';
+    //                 console.log(emailBodyInfoText);
+    //             }
+
+    //             // email function
+    //             var email = $('#emailAddressInput').val();
+
+    //             var playlistTitle = $('#playlistField h3').text();
+
+    //             var subject = 'Playlist: ' + playlistTitle;
+
+    //             var emailBody = playlistTitle + '%0A' + '%0A' + emailBodyInfoText;
+    //             document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
+    //         })
+    //     });
+    //   });
 
 
 })
