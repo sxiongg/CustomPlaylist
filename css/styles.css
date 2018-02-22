@@ -2,14 +2,18 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: rubik;
 }
 
 h1 {
     text-align: center;
+    font-family: Shrikhand;
+    font-size: 100px;
 }
 
 h3 {
     margin: 0;
+    font-family: Righteous;
 }
 
 #inputArtist {
@@ -46,5 +50,14 @@ h3 {
 
 #searchField div:first-child {
     margin: 0 0 10px 0;
+}
+
+#headerContainer {
+    margin-bottom: 50px;
+}
+
+#mainContainer {
+    width: 80%;
+    margin: auto;
 }
 
