@@ -123,7 +123,7 @@ $('document').ready(function () {
         $('.addToPlaylist').click(function(resultObj){
             // Move the object from the result to the final playlist
             // Appending the album name and image
-            searchResult += albumName + albumImg + deleteButton;
+            searchResult = albumImg + searchResult + albumName + deleteButton;
     
             // Removes prior search result
             $('#resultsContainer').children().detach();  
