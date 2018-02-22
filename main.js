@@ -92,8 +92,13 @@ $('document').ready(function () {
         // console.log(resultObj.name);
 
         var returnMessage = "<h4>Is this the song you are looking for?</h4>";
+<<<<<<< HEAD
         var searchResult = '<div class="col-md-8"><span class="trackInformation">Artist: ' + '<a href="' + resultObj.album. url + '">'+ resultObj.artist.name + '</a></span>';
         searchResult += '<span class="trackInformation">Track Name: ' + resultObj.name + '</span>';
+=======
+        var searchResult = '<div class="col-md-8"><span class="trackInformation">Artist: ' + '<a href="' + resultObj.album. url + '" target="_blank">'+ resultObj.artist.name + '</a></span>';
+        searchResult += '<span class="trackInformation"> <p>Track Name: ' + resultObj.name + '</p></span>';
+>>>>>>> 1b500aa70ec3f25bb61375e41194f5d784d8bd70
 
         // Append the message and search results
         $('#resultsContainer').append(returnMessage);
@@ -107,16 +112,28 @@ $('document').ready(function () {
         // Set the album name and image
         var albumName = "";
         var albumImg = "";
+<<<<<<< HEAD
         var deleteButton = "<div class='btn col-md-1'><button class='btn btn-danger deleteButton'>X</button></div>"
 
         if (resultObj.album != undefined) {
             // Album object found. Set the album and image
             albumName = '<span class="trackInformation">Album Name: ' + resultObj.album.title + '</span></div>';
+=======
+        var deleteButton = "<div class='btn col-md-1'><button class='btn btn-xs btn-danger deleteButton'>X</button></div>"
+
+        if (resultObj.album != undefined) {
+            // Album object found. Set the album and image
+            albumName = '<span class="trackInformation"> Album Name: ' + resultObj.album.title + '</span></div>';
+>>>>>>> 1b500aa70ec3f25bb61375e41194f5d784d8bd70
             albumImg = "<div class='col-md-2'><img src='" + resultObj.album.image[1]['#text'] + "'</img></div>";
         }
         else {
             // No album. Display a blank image placeholder
+<<<<<<< HEAD
             albumName = "<span>Album not found.</span></div>";
+=======
+            albumName = "<span class='trackInformation'> Album not found.</span></div>";
+>>>>>>> 1b500aa70ec3f25bb61375e41194f5d784d8bd70
             albumImg  = "<div class='col-md-2'> </div>";
         }
 
@@ -152,22 +169,82 @@ $('document').ready(function () {
     
             // Append the artist and track result to itemCard div
             $('#itemCard'  + playlistNumber).append(searchResult);
+
+
+            // Add delete button click event
+            $('.deleteButton').unbind('click').click(deleteRow);
     
-            
+            // Clear out the artist and song textboxes
+            $('#inputArtist').val('');
+            $('#inputSong').val('');
+            $('#inputArtist').focus();
+
+            // Display share section
+            $('.shareSection').css("display","inline");
         })
 
     };
 
     var noAPIResult = function (str) {
         // Display a message that the track searched for could not be found
-        $('#resultsContainer').append("<h4>" + str + "</h4>");
+        $('#resultsContainer').append("<h4>" + str + ". Please try another search.</h4>");
     };
 
     $("#submitButton").click(function () {
         // Sets the text entered by the user as the title of the playlist
         $("#playlistField h3").text(inputPlaylist.value);
         // console.log(inputPlaylist);
+
+        // Remove the text from the textbox
+        $('#inputPlaylist').val('');
     })
+
+    function deleteRow() {
+        // Delete only if confirmed
+        var strConfirm = confirm("Are you sure you want to delete this song from the playlist?");
+
+        if (strConfirm) {
+            // Delete the parent of the button's div (itemCard)
+            // console.log($(this).parent().get(0));
+        
+            // Delete the button's parent div and slide up
+            $(this).parent().parent().slideUp(1000);
+            $(this).parent().parent().detach();
+
+
+            // Check if the playlist div has children. If there are children then reorder the numbering.
+            // console.log("immediate del. playlist contents: " , $('#playlist').contents());
+            if ($('#playlist').children().get(0) != undefined) {
+                
+                // Reorder the numbers and itemCard IDs in the div
+                renumberPlaylist();
+                // console.log("playlist children",  $("#playlist div"));
+                // console.log("playlist children",  $("#playlist").children());
+
+            }
+            else {
+                // No itemCards. Hide the share button
+                $('.shareSection').css("display","none");
+            }
+        }
+        
+    }
+
+    function renumberPlaylist() {
+        // Reorders the sequence and itemCard div IDs in the playlist div children
+        var new_number = 1;
+        $($("#playlist").children()).each(function() {
+            // Reset the itemCard ID
+            // console.log($(this).get(0).id);
+            $(this).get(0).id = "itemCard" + new_number;
+
+            // Reset the number in the div list
+            // console.log($(this).children(0).get(0));
+            $(this).children('.numberIndex').text(new_number);
+
+            new_number++;
+        });
+    }
 
 
     function getIndexForPlaylistItem() {
@@ -189,6 +266,7 @@ $('document').ready(function () {
     
     };
 
+<<<<<<< HEAD
     // $(function () {
     //     $('.sendButton').click(function (event) {
     //         var sendForm = '<input id="emailAddressInput" class="form-control" type="text"><input class="btn" id="sendEmailButton" type="submit" value="Send">';
@@ -230,6 +308,62 @@ $('document').ready(function () {
     //     });
     //   });
 
+=======
+    // Sort the playlist div
+    Sortable.create(playlist, {
+        animation: 150,
+        onEnd: function() {
+            // When the sort is over, update the playlist sequence
+            renumberPlaylist();
+        }
+    
+    });
+
+    $(function () {
+        $('.sendButton').click(function (event) {
+            console.log("Share: ", $('#shareForm').get(0));
+
+            if ($('#shareForm').get(0) == undefined) {
+                var sendForm = '<div id="shareForm" class="shareSection"><input id="emailAddressInput" class="form-control" type="text"><input class="btn" id="sendEmailButton" type="submit" value="Send"></div>';
+                $('#column-2').append(sendForm);
+            }
+            
+    
+            $('#sendEmailButton').click(function (){
+    
+                // variables that grab last id and make it a number
+                var lastSong = $('#playlist div:last-child').children('.numberIndex').text();
+                var lastSong = Number(lastSong);
+                console.log(lastSong);
+                var emailBodyInfoText = "";
+    
+                // loop through each number index and create var of song info
+                for(i = 0; i < lastSong; i++) {
+                    //grab text of spans (song information)
+                    var grabItemCard = $('.trackInformation').parent().parent();
+                    console.log(grabItemCard[i]);
+    
+                    var grabSpans = $(grabItemCard[i]).children().children('.trackInformation').text();
+                    console.log(grabSpans);
+    
+                    // place info into variable and add new variable each iteration
+                    emailBodyInfoText += (i + 1) + ')' + grabSpans + '%0A' + '%0A';
+                    console.log(emailBodyInfoText);
+                }
+    
+                // email function
+                var email = $('#emailAddressInput').val();
+    
+                var playlistTitle = $('#playlistField h3').text();
+    
+                var subject = 'Playlist: ' + playlistTitle;
+    
+                var emailBody = playlistTitle + '%0A' + '%0A' + emailBodyInfoText;
+                document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
+            })
+        });
+      });
+>>>>>>> 1b500aa70ec3f25bb61375e41194f5d784d8bd70
 
 })
 
