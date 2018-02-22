@@ -107,7 +107,7 @@ $('document').ready(function () {
         // Set the album name and image
         var albumName = "";
         var albumImg = "";
-        var deleteButton = "<div class='btn col-md-2'><button>X</button></div>"
+        var deleteButton = "<div class='btn col-md-2'><button class='btn btn-danger deleteButton'>X</button></div>"
 
         if (resultObj.album != undefined) {
             // Album object found. Set the album and image
@@ -116,7 +116,8 @@ $('document').ready(function () {
         }
         else {
             // No album. Display a blank image placeholder
-            albumImg  = "<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZfyC7CGyu3POigSstHSw2zhXvjyrBHmxxJAZQSIlYs85mx3j8' height='64' width='64' />";
+            albumName = "<p>Album not found.</p></div>";
+            albumImg  = "<div class='col-md-4'> </div>";
         }
 
 
