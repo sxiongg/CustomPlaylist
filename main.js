@@ -75,6 +75,8 @@ $('document').ready(function () {
                         removePreviousResult();
                         noAPIResult(response.message);
                     }
+                    
+
 
                 });
         }
@@ -93,7 +95,7 @@ $('document').ready(function () {
 
         var returnMessage = "<h4>Is this the song you are looking for?</h4>";
         var searchResult = '<div class="col-md-8"><span class="trackInformation">Artist: ' + '<a href="' + resultObj.album. url + '" target="_blank">'+ resultObj.artist.name + '</a></span>';
-        searchResult += '<span class="trackInformation"> <p>Track Name: ' + resultObj.name + '</p></span>';
+        searchResult += '<span class="trackInformation"> <p>Track: ' + resultObj.name + '</p></span>';
 
         // Append the message and search results
         $('#resultsContainer').append(returnMessage);
@@ -300,6 +302,7 @@ $('document').ready(function () {
     
                 var emailBody = playlistTitle + '%0A' + '%0A' + emailBodyInfoText;
                 document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
+                $('#emailAddressInput').val('');
             })
         });
       });
