@@ -127,7 +127,7 @@ Once the search button is clicked, an API call to Last.FM is executed to search 
 
 ### Add to Playlist
 
-When the user clicks on the 'Add to Playlist' button, the artist, song, additional details (album name, album image) and a delete button get dislayed into the playlist. The search result gets removed from the page to refresh it for the next search. 
+When the user clicks on the 'Add to Playlist' button, the artist, song, additional details (album name, album image) and a delete button get displayed into the playlist. The search result gets removed from the page to refresh it for the next search. 
 
 The click event is nested within the appendAPIResult function.
 
