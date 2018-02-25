@@ -1,4 +1,5 @@
-Redwood Code Academy Group Project. (Sia, Eric, & Drew)
+# Redwood Code Academy Group Project
+Created by: Sia, Eric, & Drew
 
 We proudly present our 'Create A Playlist' web app. 
 
@@ -7,11 +8,12 @@ Once the user commences a search, a result is displayed allowing the user to con
 The user can then add the song to the playlist, edit the playlist, and email the playlist.
 
 
-##Search for Your Song
+### Search for Your Song
+
 Once the search button is clicked, an API call to Last.FM is executed to search for the artist and song entered. The URL is pieced together by the textbox entries. The spaces are removed and replaced with a plus (+) sign. If Last.FM finds both the artist and song, it returns a "track" object and appends the result to the playlist. If it does not find them, it returns an "error" object and displays a "track not found" message.
 
 
-$('#searchButton').click(function () {
+        $('#searchButton').click(function () {
         // if artist text box is blank then alert user to enter artist name
         // else if song text box is blank then alert user to enter song.
         // else proceeed
@@ -123,7 +125,8 @@ $('#searchButton').click(function () {
     };
     
 
-##Add to Playlist
+### Add to Playlist
+
 When the user clicks on the 'Add to Playlist' button, the artist, song, additional details (album name, album image) and a delete button get dislayed into the playlist. The search result gets removed from the page to refresh it for the next search. 
 
 The click event is nested within the appendAPIResult function.
@@ -173,11 +176,12 @@ The click event is nested within the appendAPIResult function.
         })
         
         
-##Index Numbering for the Playlist
+### Index Numbering for the Playlist
+
 This function returns a number for the newly added record to the playlist. If there are not any song children divs within the playlist div, then it returns 1. If there are tracks, then it finds the last item, extracts the number from it, adds one and returns that value. 
 
-   var playlistNumber = getIndexForPlaylistItem();
-   function getIndexForPlaylistItem() {
+        var playlistNumber = getIndexForPlaylistItem();
+        function getIndexForPlaylistItem() {
         // Get the number from the last record of divs in the playlist div
         // If no itemCard divs exist, then return #1
         // If itemCard divs exist, get the last value then increment by 1
@@ -197,10 +201,11 @@ This function returns a number for the newly added record to the playlist. If th
     };       
 
 
-##Renumber the Playlist
+### Renumber the Playlist
+
 This function renumbers all items in the playlist after either a rearrangement or deletion of a song. It goes through each of the playlist's children and renumbers each song's div ID and displays the correct numeric sequence for the record. For example, if there are three songs and song #2 is deleted, then the leftover #1 and #3 records are renumbered to #1 and #2.
 
-   function renumberPlaylist() {
+        function renumberPlaylist() {
         // Reorders the sequence and itemCard div IDs in the playlist div children
         var new_number = 1;
         $($("#playlist").children()).each(function() {
@@ -216,10 +221,11 @@ This function renumbers all items in the playlist after either a rearrangement o
         });
     }
 
-##Delete a Record
+### Delete a Record
+
 When the user clicks the delete button for a record and confirms it, the entire div that the song is attached to is removed from the playlist. It then calls the renumberPlaylist function to renumber the remaining records. The 'Share' button gets hidden if there are no more songs in the playlist.
 
-   function deleteRow() {
+        function deleteRow() {
         // Delete only if confirmed
         var strConfirm = confirm("Are you sure you want to delete this song from the playlist?");
 
@@ -250,38 +256,40 @@ When the user clicks the delete button for a record and confirms it, the entire 
     }
     
     
-##Sort the Playlist
+### Sort the Playlist
+
 Sorting the playlist uses the Sortable JavaScript library at https://rubaxa.github.io/Sortable/.
 Once the rows are rearranged, it calls the renumberPlaylist function to renumber the remaining records.
 
-   // Sort the playlist div
-    Sortable.create(playlist, {
+        // Sort the playlist div
+        Sortable.create(playlist, {
         animation: 150,
         onEnd: function() {
             // When the sort is over, update the playlist sequence
             renumberPlaylist();
         }
     
-    });
+        });
     
     
-##Name the Playlist
+### Name the Playlist
 Upon the submit button click, the playlist name is taken from the textbox and updates the h3 tag contained within the playlistField div. 
 
-   $("#submitButton").click(function () {
-        // Sets the text entered by the user as the title of the playlist
-        $("#playlistField h3").text(inputPlaylist.value);
-        // console.log(inputPlaylist);
+        $("#submitButton").click(function () {
+                // Sets the text entered by the user as the title of the playlist
+                $("#playlistField h3").text(inputPlaylist.value);
+                // console.log(inputPlaylist);
 
-        // Remove the text from the textbox
-        $('#inputPlaylist').val('');
-    })
+                // Remove the text from the textbox
+                $('#inputPlaylist').val('');
+        })
     
     
-##Share the Playlist
+### Share the Playlist
+
 The user can email the playlist by clicking on the Share button. When the Send button is clicked, it iterates through each div in the playlist and extracts the song information from the div that contains the data. The email body is created from this information along with the playlist name. The playlist name is also used as the email's subject line. The email from the email textbox is used to email to.  
 
-$(function () {
+        $(function () {
         $('.sendButton').click(function (event) {
             console.log("Share: ", $('#shareForm').get(0));
 
