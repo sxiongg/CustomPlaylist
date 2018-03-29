@@ -75,12 +75,8 @@ $('document').ready(function () {
                         removePreviousResult();
                         noAPIResult(response.message);
                     }
-                    
-
-
                 });
         }
-
     });
 
     var removePreviousResult = function () {
@@ -147,7 +143,7 @@ $('document').ready(function () {
             // var resultDiv = '<div class="artistResultDiv">resultdiv</div>';
             
             // Append itemCard to the playlist div
-            $('#playlist').append(itemCard);
+            $('#playlistField').append(itemCard);
     
             // Append the number index to itemCard div
             $('#itemCard' + playlistNumber).append(numberIndex);
@@ -177,7 +173,7 @@ $('document').ready(function () {
 
     $("#submitButton").click(function () {
         // Sets the text entered by the user as the title of the playlist
-        $("#playlistField h3").text(inputPlaylist.value);
+        $("#playlist h3").text(inputPlaylist.value);
         // console.log(inputPlaylist);
 
         // Remove the text from the textbox
@@ -262,15 +258,7 @@ $('document').ready(function () {
     });
 
     $(function () {
-        $('.sendButton').click(function (event) {
-            console.log("Share: ", $('#shareForm').get(0));
-
-            if ($('#shareForm').get(0) == undefined) {
-                var sendForm = '<div id="shareForm" class="shareSection"><input id="emailAddressInput" class="form-control" type="text"><input class="btn" id="sendEmailButton" type="submit" value="Send"></div>';
-                $('#column-2').append(sendForm);
-            }
-            
-    
+             
             $('#sendEmailButton').click(function (){
     
                 // variables that grab last id and make it a number
@@ -296,7 +284,7 @@ $('document').ready(function () {
                 // email function
                 var email = $('#emailAddressInput').val();
     
-                var playlistTitle = $('#playlistField h3').text();
+                var playlistTitle = $('#playlist h3').text();
     
                 var subject = 'Playlist: ' + playlistTitle;
     
@@ -304,7 +292,6 @@ $('document').ready(function () {
                 document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
                 $('#emailAddressInput').val('');
             })
-        });
       });
 
 })

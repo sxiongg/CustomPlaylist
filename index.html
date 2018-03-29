@@ -10,11 +10,8 @@
 
     <!-- Latest Sortable -->
     <script src="https://rubaxa.github.io/Sortable/Sortable.js"></script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-
-    <link href="https://fonts.googleapis.com/css?family=Shrikhand|Rubik|Righteous" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Play|Share+Tech|Source+Code+Pro" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
 
 </head>
@@ -22,65 +19,56 @@
 <body>
 
     <div class="container-fluid" id="headerContainer">
-        <div id="header1">
-            <h1>Playlist</h1>
+        <div id="header">
+            <h1>Custom Playlist Generator</h1>
         </div>
     </div>
 
     <div class="container-fluid" id="mainContainer">
-        <div id='column-1' class="col-md-6">
-            <div id="header2">
-                <h3>Search for Songs</h3>
-                </div>
-            <div id="searchField">
+        <div class="row">
+            <div class="col-md-12">
                 <div>
-                    <label for="inputArtist">Artist:</label>
+                    <h3>Search</h3>
+                </div>
+                <div id="searchField">
+                    <div>
+                        <label for="inputArtist">Artist:</label>
+                        <input class="form-control form-control-lg" type="text" id="inputArtist">
+                    </div>
 
-                    <input class="form-control" type="text" id="inputArtist">
+                    <div>
+                        <label for="inputSong">Song:</label>
+                        <input class="form-control form-control-lg" type="text" id="inputSong">
+                    </div>
+                    <div>
+                        <button class="btn" id="searchButton">Search</button>
+                    </div>
                 </div>
 
-                <div>
-                    <label for="inputSong">Song:</label>
-
-                    <input class="form-control" type="text" id="inputSong">
-
+                <div id="resultsField">
+                    <div id="resultsContainer"></div>
                 </div>
-                <div>
-                    <button class="btn" id="searchButton">Search</button>
-                </div>
-
             </div>
 
-            <div id="resultsField">
-                <div id="resultsContainer"></div>
-
-            </div>
         </div>
 
-        <div id='column-2' class="col-md-6">
-            <div id="playlistField">
-                <div>
-                    <h3>PlaylistName</h3>
+        <div class="row">
+            <div id='column-2' class="col-md-12">
+                <div id="playlistField">
+                    <div id="playlist">
+                        <div>
+                            <h3>playlist_name</h3>
+                        </div>
+                    </div>
+                    <div class="" id="renamePlaylist">
+                        <input class="form-control form-control-lg" type="text" id="inputPlaylist" placeholder="Name your playlist!">
+                        <button class="btn" id="submitButton">&check;</button>
+                        <button class="btn" id="sendEmailButton"> Send </button>
+                    </div>
                 </div>
-                <div class="pull-right" id="renamePlaylist">
-                    <label for="inputPlaylist">Playlist Name:</label>
-                    <input class="form-control" type="text" id="inputPlaylist">
-                    <button class="btn" id="submitButton">&check;</button>
-                </div>
-            </div>
-            <div id="playlist">
-                
-            </div>
-            <!-- <div id="sendButton">
-                <button class="btn sendButton">Share</button>
-            </div> -->
-            <div id="sendButton" class="shareSection" style="display:none;">
-                <button class="btn sendButton">Share</button>
             </div>
 
-
-        </div>
-        <script src="./main.js"></script>
+            <script src="./main.js"></script>
 </body>
 
 </html>

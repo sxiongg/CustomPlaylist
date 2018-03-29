@@ -2,34 +2,28 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: rubik;
-    /* border: black; */
+    font-family: Source Code Pro;
 }
 
-/* #header1 {
-    background-image: url("./../maroon.gif");
-    border-radius: 6px; */
-/* } */
-
 body {
-    background-image: url("./../faded.jpg");
+    background-image: url("");
     background-size: 100%;
     background-repeat: no-repeat;
 }
 
 h1 {
     text-align: center;
-    font-family: Shrikhand;
-    font-size: 100px;
+    font-family: Source Code Pro;
+    /* font-size: 100px; */
     color: black;
 }
 
 h3 {
     margin: 0;
-    font-family: Righteous;
+    font-family: Play;
 }
 
-#searchField {
+/* #searchField {
    background-color: rgba(225,225,225,0.2);
    border: 1px solid black;
    border-radius: 6px;
@@ -56,33 +50,21 @@ h3 {
     border: 1px solid black;
     border-radius: 6px;
     padding: 10px;
-}
+} */
 
-#inputArtist {
-    width: 30%;
-}
-
-#inputSong {
-    width: 30%
-}
+/* #searchButton {
+    margin-top: 20px;
+} */
 
 #inputPlaylist {
-    width: 50%
-}
-
-#searchButton {
-    margin-top: 20px;
+    width: 50%;
 }
 
 #playlistField * {
     display: inline;
 }
 
-#playlistField {
-    height: 50px;
-}
-
-#searchField {
+/* #searchField {
     margin: 20px 0 40px 0;
 }
 
@@ -97,13 +79,9 @@ h3 {
 #mainContainer {
     width: 80%;
     margin: auto;
-}
+} */
 
-#playlist {
-    margin: 20px;
-}
-
-#emailAddressInput {
+/* #emailAddressInput {
     width: 60%;
 }
 
@@ -113,5 +91,5 @@ h3 {
 
 .sendButton {
     margin: 0 0 10px 0;
-}
+} */
 
