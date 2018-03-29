@@ -6,90 +6,20 @@
 }
 
 body {
-    background-image: url("");
+    /* background-image: url(""); */
     background-size: 100%;
     background-repeat: no-repeat;
 }
 
+
 h1 {
     text-align: center;
     font-family: Source Code Pro;
-    /* font-size: 100px; */
     color: black;
 }
 
 h3 {
     margin: 0;
-    font-family: Play;
+    font-family: Maven Pro;
 }
-
-/* #searchField {
-   background-color: rgba(225,225,225,0.2);
-   border: 1px solid black;
-   border-radius: 6px;
-   padding: 10px;
-
-}
-
-#resultsContainer {
-    background-color: rgba(225,225,225,0.2);
-    border: 1px solid black;
-    border-radius: 6px;
-    padding: 10px;
-}
-
-#playlistField{
-    background-color: rgba(225,225,225,0.2);
-    border: 1px solid black;
-    border-radius: 6px;
-    padding: 10px;
-}
-
-#playlist {
-    background-color: rgba(225,225,225,0.2);
-    border: 1px solid black;
-    border-radius: 6px;
-    padding: 10px;
-} */
-
-/* #searchButton {
-    margin-top: 20px;
-} */
-
-#inputPlaylist {
-    width: 50%;
-}
-
-#playlistField * {
-    display: inline;
-}
-
-/* #searchField {
-    margin: 20px 0 40px 0;
-}
-
-#searchField div:first-child {
-    margin: 0 0 10px 0;
-}
-
-#headerContainer {
-    margin-bottom: 50px;
-}
-
-#mainContainer {
-    width: 80%;
-    margin: auto;
-} */
-
-/* #emailAddressInput {
-    width: 60%;
-}
-
-#sendEmailButton {
-    margin: 10px 0 0 0;
-}
-
-.sendButton {
-    margin: 0 0 10px 0;
-} */
 

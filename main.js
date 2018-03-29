@@ -90,7 +90,7 @@ $('document').ready(function () {
         // console.log(resultObj.name);
 
         var returnMessage = "<h4>Is this the song you are looking for?</h4>";
-        var searchResult = '<div class="col-md-8"><span class="trackInformation">Artist: ' + '<a href="' + resultObj.album. url + '" target="_blank">'+ resultObj.artist.name + '</a></span>';
+        var searchResult = '<div class="col-md-8"> <span class="trackInformation">Artist: ' + '<a href="' + resultObj.album. url + '" target="_blank">'+ resultObj.artist.name + '</a></span>';
         searchResult += '<span class="trackInformation"> <p>Track: ' + resultObj.name + '</p></span>';
 
         // Append the message and search results
@@ -98,7 +98,7 @@ $('document').ready(function () {
         $('#resultsContainer').append(searchResult);
 
         // Create a button to add to the final playlist
-        var addToPlaylistButton = '<button class="btn addToPlaylist">Add to Playlist</button>';
+        var addToPlaylistButton = '<button class="btn addToPlaylist pull-right">Add <span class="glyphicon glyphicon-plus"></span> </button>';
         $('#resultsContainer').append(addToPlaylistButton);
 
         // Add to playlist
@@ -143,7 +143,7 @@ $('document').ready(function () {
             // var resultDiv = '<div class="artistResultDiv">resultdiv</div>';
             
             // Append itemCard to the playlist div
-            $('#playlistField').append(itemCard);
+            $('#playlist-custom').append(itemCard);
     
             // Append the number index to itemCard div
             $('#itemCard' + playlistNumber).append(numberIndex);
@@ -274,7 +274,7 @@ $('document').ready(function () {
                     console.log(grabItemCard[i]);
     
                     var grabSpans = $(grabItemCard[i]).children().children('.trackInformation').text();
-                    console.log(grabSpans);
+                    // console.log(grabSpans);
     
                     // place info into variable and add new variable each iteration
                     emailBodyInfoText += (i + 1) + ')' + grabSpans + '%0A' + '%0A';
@@ -282,7 +282,7 @@ $('document').ready(function () {
                 }
     
                 // email function
-                var email = $('#emailAddressInput').val();
+                var email = "";
     
                 var playlistTitle = $('#playlist h3').text();
     
