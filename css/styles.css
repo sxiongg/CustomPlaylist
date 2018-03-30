@@ -2,24 +2,82 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Source Code Pro;
-}
-
-body {
-    /* background-image: url(""); */
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-
-
-h1 {
-    text-align: center;
-    font-family: Source Code Pro;
-    color: black;
-}
-
-h3 {
-    margin: 0;
     font-family: Maven Pro;
 }
 
+body {
+    /* background-image: url("./img.jpg"); */
+    /* background-size: 80%; */
+    background-repeat: no-repeat;
+    /* background-color: aquamarine; */
+}
+
+h1 {
+    text-align: center;
+    font-family: Play;
+    /* font-size: 50px; */
+    color: black;
+    margin: 2rem 0 4rem 0
+}
+
+h2, h4 {
+    margin-top: 0;
+    font-family: Play;
+}
+
+#searchField {
+    border: 1px solid #000000;
+    border-radius: 3px;
+    padding: 20px
+}
+
+ #inputArtist {
+    height: 50px;
+    font-size: 25px;
+    font-family: Poppins
+}
+
+#inputSong {
+    height: 50px;
+    font-size: 25px;
+    font-family: Poppins
+} 
+
+#searchButton {
+    margin: 1rem 0 0 0;
+    font-family: Play
+}
+
+#resultsField {
+    margin: 3rem 0 0 0
+}
+
+.addToPlaylist {
+    font-family: Play
+}
+
+#renamePlaylist * {
+    display: inline
+}
+
+#inputPlaylist {
+    width: 40%
+}
+
+#playlist-custom {
+    margin: 1rem auto 0 auto;
+    width: 80%;
+}
+
+#sendEmailButton {
+    font-family: Play
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+    font-style: italic;
+}

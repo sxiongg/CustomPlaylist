@@ -10,25 +10,25 @@
 
     <script src="https://rubaxa.github.io/Sortable/Sortable.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Play|Share+Tech|Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Play|Share+Tech|Poppins" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
 
 </head>
 
 <body>
 
-    <div class="container-fluid" id="headerContainer">
+    <div id="headerContainer">
         <div id="header">
             <h1>Custom Playlist Generator</h1>
         </div>
     </div>
 
-    <div class="container-fluid" id="mainContainer">
+    <div class="container" id="mainContainer">
         <div class="row">
             <div class="col-md-5">
                 <div id="searchField">
                     <div>
-                        <h3>Search</h3>
+                        <h4>Search for Song. . .</h4>
                     </div>
                     <div>
                         <label for="inputArtist">Artist:</label>
@@ -40,7 +40,7 @@
                         <input class="form-control" type="text" id="inputSong">
                     </div>
                     <div>
-                        <button class="btn btn-primary pull-right" id="searchButton">Search</button>
+                        <button class="btn btn-primary" id="searchButton">Search</button>
                     </div>
                 </div>
 
@@ -54,14 +54,14 @@
                 <div id="playlistField">
                     <div id="playlist">
                         <div>
-                            <h3>playlist_name</h3>
+                            <h2>playlist_name</h2>
 
                         </div>
                     </div>
                     <div id="renamePlaylist">
                         <input class="form-control" type="text" id="inputPlaylist" placeholder="Name your playlist. . .">
-                        <button class="btn" id="submitButton">&check;</button>
-                        <button class="btn pull-right" id="sendEmailButton">
+                        <button class="btn btn-default" id="submitButton">&check;</button>
+                        <button class="btn btn-success pull-right" id="sendEmailButton">
                             <span class="glyphicon glyphicon-envelope"></span> Share
                         </button>
                     </div>
@@ -70,6 +70,10 @@
                 <div id="playlist-custom">
                 </div>
             </div>
+        </div>
+
+        <div class="footer">
+            <p>Created with HTML, CSS, JavaScript, & JQuery</p>
         </div>
 
         <script src="./main.js"></script>
