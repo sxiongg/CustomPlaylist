@@ -76,12 +76,12 @@ h2, h4 {
 
 #playlist-custom {
     margin: 1rem auto 0 auto;
-    /* width: 80%; */
 }
 
 #sendEmailButton {
     font-family: Play;
-    margin-top: 10px
+    margin-top: 10px;
+    display: none
 }
 
 .footer {
@@ -91,4 +91,6 @@ h2, h4 {
     width: 100%;
     text-align: right;
     font-style: italic;
+    padding-right: 10px;
+    color: ghostwhite;
 }
