@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Custom Playlist Generator</title>
+    <title>Custom Playlist</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="https://rubaxa.github.io/Sortable/Sortable.js"></script>
@@ -16,10 +16,9 @@
 </head>
 
 <body>
-
-    <div id="headerContainer">
+    <div id="headerContainer" class="col-md-12">
         <div id="header">
-            <h1>Custom Playlist Generator</h1>
+            <h1>Custom Playlist</h1>
         </div>
     </div>
 
@@ -55,15 +54,14 @@
                     <div id="playlist">
                         <div>
                             <h2>playlist_name</h2>
-
                         </div>
                     </div>
                     <div id="renamePlaylist">
-                        <input class="form-control" type="text" id="inputPlaylist" placeholder="Name your playlist. . .">
-                        <button class="btn btn-default" id="submitButton">&check;</button>
-                        <button class="btn btn-success pull-right" id="sendEmailButton">
+                        <button class="btn btn-default pull-right" id="submitButton">&check;</button>
+                        <input class="form-control pull-right" type="text" id="inputPlaylist" placeholder="Name your playlist!">
+                        <!-- <button class="btn btn-success pull-right" id="sendEmailButton">
                             <span class="glyphicon glyphicon-envelope"></span> Share
-                        </button>
+                        </button> -->
                     </div>
                 </div>
 
@@ -71,7 +69,6 @@
                 </div>
             </div>
         </div>
-
         <div class="footer">
             <p>Created with HTML, CSS, JavaScript, & JQuery</p>
         </div>

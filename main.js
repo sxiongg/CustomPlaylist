@@ -97,15 +97,18 @@ $('document').ready(function () {
     
             // Place the sequence number into the numberIndex div for each itemCard
             var numberIndex = '<div class="numberIndex col-md-1">' + playlistNumber + '</div>';
-            
+            var shareButton = '<button class="btn btn-primary pull-right" id="sendEmailButton">' + '<span class="glyphicon glyphicon-envelope"></span> Share </button>';
+
             // Append itemCard to the playlist div
             $('#playlist-custom').append(itemCard);
             $('#playlist-custom').css({
                 'border': '1px solid black',
                 'border-radius': '3px',
                 'padding': '10px',
+                'background-color': 'rgba(190, 186, 186, 0.6)'
             })
-    
+            $('#column-2').append(shareButton);
+
             // Append the number index to itemCard div
             $('#itemCard' + playlistNumber).append(numberIndex);
     
@@ -120,10 +123,6 @@ $('document').ready(function () {
                     $( this ).find( 'div:last' ).remove();
                   }
             )
-
-            // Add delete button click event
-            // $('.deleteButton').unbind('click').click(deleteRow);
-    
             // Clear out the artist and song textboxes
             $('#inputArtist').val('');
             $('#inputSong').val('');
@@ -205,36 +204,28 @@ $('document').ready(function () {
         }  
     });
 
-    $(function () {
-             
+    $(function () {  
             $('#sendEmailButton').click(function (){
-    
-                // variables that grab last id and make it a number
+                // Grab last id and make it a number
                 var lastSong = $('#playlist-custom div:last-child').children('.numberIndex').text();
                 var lastSong = Number(lastSong);
                 console.log(lastSong);
                 var emailBodyInfoText = "";
     
-                // loop through each number index and create var of song info
+                // Loop through each number index and create var of song info
                 for(i = 0; i < lastSong; i++) {
                     //grab text of spans (song information)
                     var grabItemCard = $('.trackInformation').parent().parent();
                     console.log(grabItemCard[i]);
-    
                     var grabSpans = $(grabItemCard[i]).children().children('.trackInformation').text();
-    
                     // place info into variable and add new variable each iteration
                     emailBodyInfoText += (i + 1) + ')' + grabSpans + '%0A' + '%0A';
                     console.log(emailBodyInfoText);
                 }
-    
-                // email function
+                // Email
                 var email = "";
-    
                 var playlistTitle = $('#playlist h2').text();
-    
                 var subject = 'Playlist: ' + playlistTitle;
-    
                 var emailBody = playlistTitle + '%0A' + '%0A' + emailBodyInfoText;
                 document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
                 $('#emailAddressInput').val('');
